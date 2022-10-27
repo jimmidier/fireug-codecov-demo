@@ -1,16 +1,21 @@
 coverage:
   status:
-    project:
-      default: false
-      js:
-        target: 100%
-        threshold: 10%
-        paths:
-          - js/
-      dotnet:
-        target: auto
-        threshold: 10%
-        paths:
-          - dotnet/
-    patch:
-      default: false
+    project: off
+    patch: off
+
+flag_management:
+  individual_flags:
+    - name: js
+      paths:
+        - js/
+      statuses:
+        - type: project
+          target: 100%
+          threshold: 10%
+    - name: dotnet
+      paths:
+        - dotnet/Math
+      statuses:
+        - type: project
+          target: auto
+          threshold: 10%
