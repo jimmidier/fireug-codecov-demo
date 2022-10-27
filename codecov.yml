@@ -12,3 +12,5 @@ coverage:
         threshold: 10%
         paths:
           - dotnet/
+    patch:
+      default: false
