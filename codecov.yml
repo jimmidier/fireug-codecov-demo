@@ -14,7 +14,7 @@ flag_management:
           threshold: 10%
     - name: dotnet
       paths:
-        - dotnet/Math.Test
+        - dotnet/Math
       statuses:
         - type: project
           target: auto
