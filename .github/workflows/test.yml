@@ -21,3 +21,26 @@ jobs:
         # with:
         #   token: ${{ secrets.CODECOV_TOKEN }}
         #   flags: js
+
+  test-dotnet:
+    runs-on: ubuntu-latest
+    name: Test dotnet divide function
+    defaults:
+      run:
+        working-directory: ./dotnet/Math.Test
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: '6.0.x'
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --no-restore --collect:"XPlat Code Coverage"
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v3
+        # with:
+        #   token: ${{ secrets.CODECOV_TOKEN }}
+        #   flags: dotnet
