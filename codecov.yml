@@ -1,10 +1,16 @@
 coverage:
   status:
     project:
-      default:
+      default: false
+      js:
         target: 100%
         threshold: 10%
+        paths:
+          - js/
+      dotnet:
+        target: auto
+        threshold: 10%
+        paths:
+          - dotnet/
     patch:
-      default:
-        target: 100%
-        threshold: 10%
+      default: false
